@@ -1,0 +1,7 @@
+{
+	"name": "liferay-sync-node",
+	"main": "index.html",
+	"window": {
+		// "toolbar": false
+	}
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Liferay Sync</title>
+		<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+		<link rel="stylesheet" href="css/signin.css">
+	</head>
+	<body>
+		<div class="container">
+			<form class="form-signin" role="form">
+				<input id="email" type="email" class="form-control" placeholder="Email address" value="test@liferay.com" required autofocus>
+				<input id="password" type="password" class="form-control" placeholder="Password" required>
+				<input id="server" type="text" class="form-control" placeholder="Server" value="http://localhost:8080" required>
+				<button id="sign-in" data-loading-text="Signing in..."  class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+			</form>
+		</div>
+
+		<script src="bower_components/jquery/dist/jquery.js"></script>
+		<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+		<script src="lib/session.js"></script>
+
+		<script type="text/javascript">
+			function getUserSites() {
+				var session = new Session($('#server').val(), $('#email').val(), 'test'),
+					command = {
+						'/group/get-user-sites': {}
+					};
+
+				session.invoke(command, function(err, data) {
+					var btn = $('#sign-in');
+					btn.button('reset');
+
+					if (err) {
+						btn.html('Error!');
+						console.error(err);
+					}
+					else {
+						btn.html('Success!');
+						console.log(data);
+					}
+				});
+			}
+
+			$('#sign-in').click(function () {
+				var btn = $(this);
+
+				btn.button('loading');
+				getUserSites();
+			});
+		</script>
+	</body>
+</html>
