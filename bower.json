@@ -1,0 +1,20 @@
+{
+	"name": "liferay-sync-node",
+	"version": "0.1.0",
+	"authors": [
+		"Bruno Farache <bruno.farache@liferay.com>"
+	],
+	"description": "Liferay Sync Node",
+	"license": "LGPL 2.1",
+	"private": true,
+	"ignore": [
+		"**/.*",
+		"node_modules",
+		"bower_components",
+		"test",
+		"tests"
+	],
+	"dependencies": {
+		"bootstrap": "~3.1.1"
+	}
+}
