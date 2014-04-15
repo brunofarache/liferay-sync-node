@@ -5,7 +5,13 @@ module.exports = function(grunt) {
 
 	grunt.initConfig({
 		jsbeautifier: {
-			files: files
+			files: files,
+			options: {
+				js: {
+					braceStyle: 'end-expand',
+					indentWithTabs: true
+				}
+			}
 		},
 
 		jshint: {

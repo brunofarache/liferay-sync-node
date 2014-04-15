@@ -31,7 +31,7 @@ Session.prototype.invoke = function(command, callback) {
 
 	var request = http.request(options, function(response) {
 		response.setEncoding('utf8');
-		
+
 		response.on('data', function(data) {
 			var json = JSON.parse(data);
 
